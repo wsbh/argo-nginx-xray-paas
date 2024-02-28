@@ -119,7 +119,27 @@
 					"path": "#SS_WSPATH#"
 				}
 			}
-		}
+		},
+		{
+      "protocol": "vless",
+      "listen": "127.0.0.1",
+      "port": 50000,
+      "settings": {
+        "clients": [
+          {
+            "id": "#UUID#"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "grpcSettings": {
+          "serviceName": "vm-grpc"
+        },
+        "security": "none"
+      }
+    }
 	],
 	"dns": {
 		"servers": [
