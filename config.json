@@ -120,14 +120,13 @@
 				}
 			}
 		},
-		{
+    {
+      "listen": "/dev/shm/Xray-VLESS-gRPC.socket,0666",
       "protocol": "vless",
-      "listen": "127.0.0.1",
-      "port": 50000,
       "settings": {
         "clients": [
           {
-            "id": "#UUID#"
+            "id": "" // 填写你的 UUID
           }
         ],
         "decryption": "none"
@@ -135,9 +134,8 @@
       "streamSettings": {
         "network": "grpc",
         "grpcSettings": {
-          "serviceName": "vm-grpc"
-        },
-        "security": "none"
+          "serviceName": "" // 填写你的 ServiceName
+        }
       }
     }
 	],
