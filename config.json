@@ -121,7 +121,7 @@
 			}
 		},
         {
-            "listen": "127.0.0.1,
+            "listen": "127.0.0.1",
             "port": 40001,
             "protocol": "shadowsocks",
             "settings": {
