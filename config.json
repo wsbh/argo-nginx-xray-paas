@@ -19,13 +19,13 @@
                     		{
                         		"dest":80
                     		},
+				{
+                        		"path":"#VMESS_WSPATH#",
+                        		"dest":10000
+                    		},
                     		{
                         		"path":"#VLESS_WSPATH#",
                         		"dest":20000
-                    		},
-                    		{
-                        		"path":"#VMESS_WSPATH#",
-                        		"dest":10000
                     		},
                     		{
                         		"path":"#TROJAN_WSPATH#",
@@ -39,26 +39,6 @@
 		},
 			"streamSettings": {
 				"network": "tcp"
-			}
-		},
-		{
-			"port": 20000,
-			"listen": "127.0.0.1",
-			"protocol": "vless",
-			"settings": {
-				"clients": [
-					{
-						"id": "#UUID#",
-						"level": 0
-					}
-				],
-				"decryption": "none"
-			},
-			"streamSettings": {
-				"network": "httpupgrade",
-				"httpupgradeSettings": {
-					"path": "#VLESS_WSPATH#"
-				}
 			}
 		},
 		{
@@ -77,6 +57,27 @@
 				"network": "ws",
 				"wsSettings": {
 					"path": "#VMESS_WSPATH#"
+				}
+			}
+		},
+		{
+			"port": 20000,
+			"listen": "127.0.0.1",
+			"protocol": "vless",
+			"settings": {
+				"clients": [
+					{
+						"id": "#UUID#",
+						"level": 0
+					}
+				],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "ws",
+				"security": "none",
+				"wsSettings": {
+					"path": "#VLESS_WSPATH#"
 				}
 			}
 		},
@@ -102,19 +103,19 @@
 		{
 			"port": 40000,
 			"listen": "127.0.0.1",
-			"protocol": "shadowsocks",
+			"protocol": "vless",
 			"settings": {
 				"clients": [
 					{
-						"method": "chacha20-ietf-poly1305",
-						"password": "#UUID#"
+						"id": "#UUID#",
+						"level": 0
 					}
 				],
 				"decryption": "none"
 			},
 			"streamSettings": {
-				"network": "ws",
-				"wsSettings": {
+				"network": "httpupgrade",
+				"httpupgradeSettings": {
 					"path": "#SS_WSPATH#"
 				}
 			}
