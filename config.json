@@ -55,9 +55,8 @@
 				"decryption": "none"
 			},
 			"streamSettings": {
-				"network": "ws",
-				"security": "none",
-				"wsSettings": {
+				"network": "httpupgrade",
+				"httpupgradeSettings": {
 					"path": "#VLESS_WSPATH#"
 				}
 			}
@@ -119,19 +118,7 @@
 					"path": "#SS_WSPATH#"
 				}
 			}
-		},
-        {
-            "listen": "127.0.0.1",
-            "port": 40001,
-            "protocol": "shadowsocks",
-            "settings": {
-                "method": "chacha20-ietf-poly1305",
-                "password": "#UUID#"
-        },
-            "streamSettings": {
-                "network": "tcp"
-            }
-        }
+		}
 	],
 	"dns": {
 		"servers": [
