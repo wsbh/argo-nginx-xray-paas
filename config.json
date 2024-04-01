@@ -31,7 +31,7 @@
                         		"path":"#TROJAN_WSPATH#",
                         		"dest":30000
                     		},
-                    		{
+				{
                         		"path":"#SS_WSPATH#",
                         		"dest":40000
                     		}
@@ -84,25 +84,6 @@
 		{
 			"port": 30000,
 			"listen": "127.0.0.1",
-			"protocol": "trojan",
-			"settings": {
-				"clients": [
-					{
-						"password": "#UUID#"
-					}
-				]
-			},
-			"streamSettings": {
-				"network": "ws",
-				"security": "none",
-				"wsSettings": {
-					"path": "#TROJAN_WSPATH#"
-				}
-			}
-		},
-		{
-			"port": 40000,
-			"listen": "127.0.0.1",
 			"protocol": "vless",
 			"settings": {
 				"clients": [
@@ -116,6 +97,26 @@
 			"streamSettings": {
 				"network": "httpupgrade",
 				"httpupgradeSettings": {
+					"path": "#TROJAN_WSPATH#"
+				}
+			}
+		},
+		{
+			"port": 40000,
+			"listen": "127.0.0.1",
+			"protocol": "shadowsocks",
+			"settings": {
+				"clients": [
+					{
+						"method": "chacha20-ietf-poly1305",
+						"password": "#UUID#"
+					}
+				],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
 					"path": "#SS_WSPATH#"
 				}
 			}
