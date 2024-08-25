@@ -34,6 +34,10 @@
 				{
                         		"path":"#SS_WSPATH#",
                         		"dest":40000
+                    		},
+                    						{
+                        		"path":"#Socks_WSPATH#",
+                        		"dest":50000
                     		}
                 	]
 		},
@@ -120,6 +124,18 @@
 					"path": "#SS_WSPATH#"
 				}
 			}
+		},
+		{
+			"port": 50000,
+			"listen": "127.0.0.1",
+			"protocol": "socks",
+"settings":
+{
+  "auth": "noauth",
+  "udp": false,
+  "userLevel": 10
+},
+			"streamSettings":{"network":"ws","wsSettings":{"path":"#Socks_WSPATH#"}}
 		}
 	],
 	"dns": {
