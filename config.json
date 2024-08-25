@@ -36,7 +36,7 @@
                         		"dest":40000
                     		},
                     						{
-                        		"path":"#Socks_WSPATH#",
+                        		"path":"#SOCKS_WSPATH#",
                         		"dest":50000
                     		}
                 	]
@@ -135,7 +135,7 @@
   "udp": false,
   "userLevel": 10
 },
-			"streamSettings":{"network":"ws","wsSettings":{"path":"#Socks_WSPATH#"}}
+			"streamSettings":{"network":"ws","wsSettings":{"path":"#SOCKS_WSPATH#"}}
 		}
 	],
 	"dns": {
