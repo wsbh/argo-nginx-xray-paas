@@ -11,7 +11,7 @@ VMESS_WSPATH=${VMESS_WSPATH:-'/vmess'}
 VLESS_WSPATH=${VLESS_WSPATH:-'/vless'}
 TROJAN_WSPATH=${TROJAN_WSPATH:-'/trojan'}
 SS_WSPATH=${SS_WSPATH:-'/shadowsocks'}
-Socks_WSPATH=${SS_WSPATH:-'/socks'}
+SOCKS_WSPATH=${SOCKS_WSPATH:-'/socks'}
 VAR_NAMES=("UUID" "VMESS_WSPATH" "VLESS_WSPATH" "TROJAN_WSPATH" "SS_WSPATH" "Socks_WSPATH" "DISPLAY_NAME" "ARGO_AUTH" "AGENT")
 
 # Store the settings ------------------------------------------
