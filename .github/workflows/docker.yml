@@ -1,8 +1,9 @@
 name: "Build and push image"
 
 on:
-  workflow_dispatch:
-
+  schedule:
+  - cron:  "5 5 */3 * *"
+  
 jobs:
   build:
     runs-on: ubuntu-latest
