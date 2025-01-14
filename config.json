@@ -74,9 +74,11 @@
 				"decryption": "none"
 			},
 			"streamSettings": {
-				"network": "ws",
+				"network": "xhttp",
 				"security": "none",
-				"wsSettings": {
+				"xhttpSettings": {
+					"host": "",
+					"mode": "auto",
 					"path": "#VLESS_WSPATH#"
 				}
 			}
