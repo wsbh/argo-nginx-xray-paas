@@ -32,9 +32,9 @@ public hostname指向8080，则由nginx入站分流，若指向8888，则由xray
   | ------------ | ------ | ------ | ------ |
   | UUID         | 否 | de04add9-5c68-8bab-950c-08cd5320df18 | 可在线生成 https://www.uuidgenerator.net/ |
   | ARGO_AUTH    | 否 |    | Cloudflare固定隧道的Token(一长串Base64编码字符) |
-  | VMESS_WSPATH  | 否 | /vmess | 以 / 开头 |
-  | VLESS_WSPATH  | 否 | /vless | 以 / 开头 |
-  | TROJAN_WSPATH | 否 | /trojan | 以 / 开头 |
+  | VMESS_WSPATH  | 否 | /vmess | 以 / 开头（vmess+ws） |
+  | VLESS_WSPATH  | 否 | /vless | 以 / 开头（vless+xhttp） |
+  | TROJAN_WSPATH | 否 | /trojan | 以 / 开头（vless+httpupgrade） |
   | SS_WSPATH     | 否 | /shadowsocks | 以 / 开头 |
 
 * GitHub Actions 用到的变量
