@@ -11,9 +11,7 @@
 			"settings": {
 				"clients": [
 					{
-						"id": "#UUID#",
-						"encryption": "none",
-						"flow": "xtls-rprx-vision"
+						"id": "#UUID#"
 					}
 				],
 				"decryption": "none",
@@ -70,8 +68,6 @@
 				"clients": [
 					{
 						"id": "#UUID#",
-						"encryption": "none",
-						"flow": "xtls-rprx-vision",
 						"level": 0
 					}
 				],
