@@ -34,14 +34,6 @@ done
 
 source substitution.sh
 
-# Update keys and restart ssh servers
-KEYS_FILE="/root/.ssh/authorized_keys"
-echo ${SSH_PUBKEY} > ${KEYS_FILE}
-echo ${SSH_PUBKEY2} >> ${KEYS_FILE}
-echo ${SSH_PUBKEY3} >> ${KEYS_FILE}
-echo ${SSH_PUBKEY4} >> ${KEYS_FILE}
-/etc/init.d/ssh restart
-/etc/init.d/dropbear restart
 
 # Setup Nginx and website
 # rm /usr/share/nginx/html/*${UUID}*
