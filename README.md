@@ -16,12 +16,6 @@
 固定隧道的地址为类似`https://固定通道的域名/VMESS_WSPATH`，端口，UUID等其他设置与非固定隧道的配置一样。
 
 public hostname指向8080，则由nginx入站分流，若指向8888，则由xray入站回落，端口，UUID等设置一样。
-### 远程管理
-
-* 增加ssh服务器，可连接至后台。该ssh服务在公网上不可见，需要以无"_warp"的路径连接到节点，然后通过代理来连接：`ssh root@127.0.0.1 -p2223 -v -o StrictHostKeyChecking=no -o ProxyCommand="/usr/bin/nc -x 127.0.0.1:1080 %h %p"`，其中127.0.0.1:1080为本地socks5服务器。
-* 有两种ssh服务器，sshd监听22和2222端口，dropbear监听2223端口。如果22端口不可用则可以在ssh命令后面增加`-p 端口`来使用其他端口连接。
-* ssh大多数情况下默认登录到root用户。
-* ssh服务器仅支持Key的方式登录，可以设置环境变量`SSH_PUBKEY`、`SSH_PUBKEY2`、`SSH_PUBKEY3`和`SSH_PUBKEY4`，最多支持4个Key。
 
 ## 部署
 
@@ -32,10 +26,8 @@ public hostname指向8080，则由nginx入站分流，若指向8888，则由xray
   | ------------ | ------ | ------ | ------ |
   | UUID         | 否 | de04add9-5c68-8bab-950c-08cd5320df18 | 可在线生成 https://www.uuidgenerator.net/ |
   | ARGO_AUTH    | 否 |    | Cloudflare固定隧道的Token(一长串Base64编码字符) |
-  | VMESS_WSPATH  | 否 | /vmess | 以 / 开头（vmess+ws） |
   | VLESS_WSPATH  | 否 | /vless | 以 / 开头（vless+xhttp） |
-  | TROJAN_WSPATH | 否 | /trojan | 以 / 开头（vless+httpupgrade） |
-  | SS_WSPATH     | 否 | /shadowsocks | 以 / 开头 |
+
 
 * GitHub Actions 用到的变量
 
