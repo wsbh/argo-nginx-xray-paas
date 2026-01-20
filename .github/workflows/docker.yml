@@ -2,7 +2,7 @@ name: "Build and push image"
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "xget" ]
   schedule:
   - cron:  "5 5 */10 * *"
 
@@ -13,7 +13,7 @@ jobs:
     env:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      DOCKERHUB_REPOSITORY: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
+      DOCKERHUB_REPOSITORY: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:xget
 
     steps:
       - name: Set up QEMU
