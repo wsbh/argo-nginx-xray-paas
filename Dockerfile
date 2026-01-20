@@ -1,12 +1,36 @@
+# ===== 阶段1: 构建Worker应用 =====
+FROM node:25-alpine AS builder
+WORKDIR /app
+COPY package*.json wrangler.toml ./
+RUN npm ci
+COPY src ./src
+RUN npx wrangler deploy --dry-run --outdir=dist
+
+# ===== 阶段2: 完整运行时环境 =====
 FROM nginx:latest
+USER root
 
 # nginx:latest docker image exposes 80 by default, so no need to expose port 80 again.
 # Some Paas providers (Back4app) only allow one exposed port, and it has to be port 80.
 # Some Paas providers (Codesandbox) prohibit listening on port 80, in such case, use port 8080 instead and
 #  delete these lines from nginx.conf: "listen 80;" and "listen [::]:80;"
+# ----------------------------
+# 安装workerd运行时 (来自第一个Dockerfile)
+# ----------------------------
+RUN apt-get update && \
+    apt-get install -y ca-certificates npm && \
+    npm install -g @cloudflare/workerd-linux-64 && \
+    ln -s /usr/local/lib/node_modules/@cloudflare/workerd-linux-64/bin/workerd /usr/local/bin/workerd &&
+    workerd --version
+
+# ----------------------------
+# Workers文件部署 (多阶段复制)
+# ----------------------------
+WORKDIR /worker
+COPY --from=builder /app/dist /worker/dist
+COPY --from=builder /app/config.capnp /worker/
 
 WORKDIR /app
-USER root
 COPY supervisor.conf /etc/supervisor/conf.d/supervisord.conf
 COPY doge.zip ./
 COPY webpage.html ./template_webpage.html
