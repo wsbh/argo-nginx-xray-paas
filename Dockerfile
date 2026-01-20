@@ -27,8 +27,8 @@ RUN apt-get update && \
 # Workers文件部署 (多阶段复制)
 # ----------------------------
 WORKDIR /worker
-COPY --from=builder /app/dist /worker/dist
-COPY --from=builder /app/config.capnp /worker/
+COPY --from=builder /app/dist ./dist
+COPY config.capnp ./config.capnp
 
 WORKDIR /app
 COPY supervisor.conf /etc/supervisor/conf.d/supervisord.conf
