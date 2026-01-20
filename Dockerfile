@@ -20,7 +20,7 @@ USER root
 RUN apt-get update && \
     apt-get install -y ca-certificates npm && \
     npm install -g @cloudflare/workerd-linux-64 && \
-    ln -s /usr/local/lib/node_modules/@cloudflare/workerd-linux-64/bin/workerd /usr/local/bin/workerd &&
+    ln -s /usr/local/lib/node_modules/@cloudflare/workerd-linux-64/bin/workerd /usr/local/bin/workerd && \
     workerd --version
 
 # ----------------------------
