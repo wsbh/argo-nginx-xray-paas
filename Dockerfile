@@ -1,11 +1,27 @@
 # ===== 阶段1: 构建Worker应用 =====
 FROM node:25-alpine AS builder
 WORKDIR /app
-COPY package*.json wrangler.toml ./
-RUN npm ci
-COPY src ./src
-RUN npx wrangler deploy --dry-run --outdir=dist
+# 步骤一：安装依赖工具
+RUN apk add --no-cache curl unzip 
 
+# 步骤二：下载 GitHub 仓库并解压 (自动清理缓存)
+RUN curl -L "https://github.com/xixu-me/xget/archive/refs/heads/main.zip" -o repo.zip && \
+    unzip repo.zip && \
+    mv xget-main/* /app/ && \
+    rm -rf repo.zip xget-main
+
+# 步骤三：安装依赖 (独立层保留 node_modules 缓存)
+#COPY package*.json wrangler.toml /app/
+#RUN npm install --only=production
+
+# 步骤四：复制解压后的源码 (使用之前下载的内容)
+#COPY --from=builder /app/src ./src
+###########################################################################
+#COPY package*.json wrangler.toml ./
+RUN npm ci
+#COPY src ./src
+RUN npx wrangler deploy --dry-run --outdir=dist
+###########################################################################
 # ===== 阶段2: 完整运行时环境 =====
 FROM nginx:latest
 USER root
@@ -28,7 +44,8 @@ RUN apt-get update && \
 # ----------------------------
 WORKDIR /worker
 COPY --from=builder /app/dist ./dist
-COPY config.capnp ./config.capnp
+#COPY config.capnp ./config.capnp
+COPY --from=builder /app/config.capnp ./config.capnp
 
 WORKDIR /app
 COPY supervisor.conf /etc/supervisor/conf.d/supervisord.conf
