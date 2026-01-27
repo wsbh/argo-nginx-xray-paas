@@ -16,7 +16,7 @@
 						"level": 0
 					}
 				],
-				"decryption": "mlkem768x25519plus.native.600s.0ETVPgaxpjv2qX92JUw0w-7jk85OchVNs3ATUOvack0"
+				"decryption": "#ENC#"
 			},
 			"streamSettings": {
 				"network": "xhttp",
