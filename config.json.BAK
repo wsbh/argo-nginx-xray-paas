@@ -7,6 +7,32 @@
 	"inbounds": [
 		{
 			"port": 8888,
+			"protocol": "vless",
+			"settings": {
+				"clients": [
+					{
+						"id": "#UUID#"
+					}
+				],
+				"decryption": "none",
+                		"fallbacks":[
+                    		{
+                        		"dest":80
+                    		},
+												
+                    		{
+                        		"path":"#VLESS_WSPATH#",
+                        		"dest":20000
+                    		}
+                		]
+			},
+			"streamSettings": {
+				"network": "raw"
+			}
+		},
+
+		{
+			"port": 20000,
 			"listen": "127.0.0.1",
 			"protocol": "vless",
 			"settings": {
@@ -16,7 +42,7 @@
 						"level": 0
 					}
 				],
-				"decryption": "mlkem768x25519plus.native.600s.0ETVPgaxpjv2qX92JUw0w-7jk85OchVNs3ATUOvack0"
+				"decryption": "none"
 			},
 			"streamSettings": {
 				"network": "xhttp",
