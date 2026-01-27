@@ -11,15 +11,7 @@ RUN curl -L "https://github.com/xixu-me/xget/archive/refs/heads/main.zip" -o rep
     rm -rf repo.zip xget-main
 
 # 步骤三：安装依赖 (独立层保留 node_modules 缓存)
-#COPY package*.json wrangler.toml /app/
-#RUN npm install --only=production
-
-# 步骤四：复制解压后的源码 (使用之前下载的内容)
-#COPY --from=builder /app/src ./src
-###########################################################################
-#COPY package*.json wrangler.toml ./
 RUN npm ci
-#COPY src ./src
 RUN npx wrangler deploy --dry-run --outdir=dist
 ###########################################################################
 # ===== 阶段2: 完整运行时环境 =====

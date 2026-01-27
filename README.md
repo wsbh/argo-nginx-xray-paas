@@ -15,7 +15,8 @@
 如果未设置ARGO_AUTH则不启用该特性。启用固定隧道并不会禁用trycloudflare.com的域名。
 固定隧道的地址为类似`https://固定通道的域名/VMESS_WSPATH`，端口，UUID等其他设置与非固定隧道的配置一样。
 
-public hostname指向8080，则由nginx入站分流，若指向8888，则由xray入站回落，端口，UUID等设置一样。
+public hostname指向80，则由nginx入站分流，若指向8888，则由xray入站回落，端口，UUID等设置一样。
+增加8080，xget
 
 ## 部署
 
@@ -43,7 +44,7 @@ public hostname指向8080，则由nginx入站分流，若指向8888，则由xray
 
 * ifeng 的 v2ray 项目：https://github.com/hiifeng
 * fscarmen2 的 argo xray 项目：https://github.com/fscarmen2
-
+* xixu-me 的 xget 项目：https://github.com/xixu-me/xget
 ## 免责声明
 
 * 本程序仅供学习了解, 非盈利目的，请于下载后 24 小时内删除, 不得用作任何商业用途, 文字、数据及图片均有所属版权, 如转载须注明来源。
