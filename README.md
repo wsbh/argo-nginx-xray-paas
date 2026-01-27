@@ -22,13 +22,13 @@ public hostname指向80，则由nginx入站分流，若指向8888，则由xray�
 
 * 注册任意一家 PaaS 云服务商
 * 根据 PaaS 云服务商的不同绑定自己的 GitHub 账户或使用项目提供的 Actions 生成 DockerHub 镜像，严重建议小号 + 私库
-* 项目可用到的变量
+* 项目可用到的变量，增加ENC,默认NONE
   | 变量名 | 是否必须 | 默认值 | 备注 |
   | ------------ | ------ | ------ | ------ |
   | UUID         | 否 | de04add9-5c68-8bab-950c-08cd5320df18 | 可在线生成 https://www.uuidgenerator.net/ |
   | ARGO_AUTH    | 否 |    | Cloudflare固定隧道的Token(一长串Base64编码字符) |
   | VLESS_WSPATH  | 否 | /vless | 以 / 开头（vless+xhttp） |
-
+  | ENC  | 否 | 默认NONE | ./xray vlessenc生成 |
 
 * GitHub Actions 用到的变量
 
