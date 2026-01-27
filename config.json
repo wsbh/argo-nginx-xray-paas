@@ -14,7 +14,7 @@
 						"id": "#UUID#"
 					}
 				],
-				"decryption": "none",
+				"decryption": "mlkem768x25519plus.native.600s.k132ZkrIq-SnIKttaAQVFfXnbJJXj1kJue8_n9WttKUWja7qvT78iY1UN66uIlp52kRJHKqm9I-e88J5Q8qNJQ",
                 		"fallbacks":[
                     		{
                         		"dest":80
