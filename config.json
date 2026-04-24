@@ -25,10 +25,7 @@
 				"xhttpSettings": {
 					"host": "",
 					"mode": "auto",
-					"path": "#VLESS_WSPATH#",
-					"extra": {
-						"xPaddingQueryParam": "protocol"
-					}
+					"path": "#VLESS_WSPATH#"
 				}
 			}
 		}
