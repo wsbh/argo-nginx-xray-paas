@@ -29,6 +29,7 @@ public hostname指向80，则由nginx入站分流，若指向8888，则由xray�
   | ARGO_AUTH    | 否 |    | Cloudflare固定隧道的Token(一长串Base64编码字符) |
   | VLESS_WSPATH  | 否 | /vless | 以 / 开头（vless+xhttp） |
   | ENC  | 否 | 默认NONE | ./xray vlessenc生成 |
+  | xPadding  | 否 | 默认query |   |
 
 * GitHub Actions 用到的变量
 

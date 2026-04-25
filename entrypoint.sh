@@ -12,8 +12,9 @@ VLESS_WSPATH=${VLESS_WSPATH:-'/vless'}
 TROJAN_WSPATH=${TROJAN_WSPATH:-'/trojan'}
 SS_WSPATH=${SS_WSPATH:-'/shadowsocks'}
 ENC=${ENC:-'NONE'}
+xPadding=${xPadding:-'query'}
 
-VAR_NAMES=("UUID" "VMESS_WSPATH" "VLESS_WSPATH" "TROJAN_WSPATH" "SS_WSPATH" "DISPLAY_NAME" "ARGO_AUTH" "AGENT" "ENC")
+VAR_NAMES=("UUID" "VMESS_WSPATH" "VLESS_WSPATH" "TROJAN_WSPATH" "SS_WSPATH" "DISPLAY_NAME" "ARGO_AUTH" "AGENT" "ENC" "xPadding")
 
 # Store the settings ------------------------------------------
 VAR_STORAGE="env_vars.sh"
