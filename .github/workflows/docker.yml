@@ -31,3 +31,12 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: ${{ env.DOCKERHUB_REPOSITORY }}
+      - name: Keepalive
+        run: |
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            date -u > .keepalive
+            git add .keepalive
+            git commit -m "chore: keepalive $(date -u +%Y-%m-%d)"
+            git push
+  
