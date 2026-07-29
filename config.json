@@ -26,9 +26,11 @@
 					"host": "",
 					"mode": "auto",
 					"path": "#VLESS_WSPATH#",
-					"extra": {
-						"xPaddingQueryParam": "#xPadding#"
-					}
+					"xPaddingObfsMode": true,
+					"xPaddingMethod": "tokenish",
+					"xPaddingPlacement": "header",
+					"xPaddingHeader": "X-cache",
+					"xPaddingKey": "_dig"
 				}
 			}
 		}
